@@ -1,3 +1,6 @@
+var discipline = randomDiscipline();
+$("h1").text(discipline);
+
 $(document).ready(function () {
     // appel de la fonction home pour afficher les infos de la page d'accueil
     home();
@@ -7,20 +10,21 @@ $(document).ready(function () {
     // on rappelle la fonction home pour recréer l'affichage à jour
     $("button").on("click", function() {
         $("article").remove();
+        discipline = randomDiscipline();
         home();
     })
 });
 
 function home() {
     // définition de l'url de l'api a appelé et appel via la fonction getData
-    let myUrl = "https://bwf-api.herokuapp.com/api/" + randomDiscipline();
+    let myUrl = "https://bwf-api.herokuapp.com/api/" + discipline;
     getData(myUrl);
 }
 
+// fonction qui renvoie la discipline tirée au sort
 function randomDiscipline() {
     let discipline = ["men-singles", "women-singles", "men-doubles", "women-doubles", "mixed-doubles"];
     let index = Math.floor(Math.random() * 5);
-    console.log("Index : " + index);
     return discipline[index];
 }
 
@@ -38,6 +42,7 @@ function getData(apiUrl) {
 }
 
 function showResult(data) {
+    $("h1").text(discipline);
     let newArticle = ("<article>");
     $("button").after(newArticle);
     data.forEach(entity => {
