@@ -1,14 +1,34 @@
 $(document).ready(function () {
+    // appel de la fonction home pour afficher les infos de la page d'accueil
+    home();
 
-    let result = new Object();
-    getData();
+    // gestion du clic sur le bouton actualiser :
+    // on efface le feed existant puis
+    // on rappelle la fonction home pour recréer l'affichage à jour
+    $("button").on("click", function() {
+        $("article").remove();
+        home();
+    })
 });
 
-function getData() {
+function home() {
+    // définition de l'url de l'api a appelé et appel via la fonction getData
+    let myUrl = "https://bwf-api.herokuapp.com/api/" + randomDiscipline();
+    getData(myUrl);
+}
+
+function randomDiscipline() {
+    let discipline = ["men-singles", "women-singles", "men-doubles", "women-doubles", "mixed-doubles"];
+    let index = Math.floor(Math.random() * 5);
+    console.log("Index : " + index);
+    return discipline[index];
+}
+
+function getData(apiUrl) {
     $.ajax({
-        url: "https://bwf-api.herokuapp.com/api/mixed-doubles",
+        url: apiUrl,
     })
-        .done(function (response) {console.log(response);
+        .done(function (response) {
             showResult(response);
         })
         .fail(function (error) {
@@ -19,7 +39,7 @@ function getData() {
 
 function showResult(data) {
     let newArticle = ("<article>");
-    $("h1").after(newArticle);
+    $("button").after(newArticle);
     data.forEach(entity => {
         let newSection = ("<section>");
         $("article").append(newSection);
