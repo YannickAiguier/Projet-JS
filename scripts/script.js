@@ -1,14 +1,27 @@
-var discipline = randomDiscipline();
+let discipline = randomDiscipline();
 $("h1").text(discipline);
 
 $(document).ready(function () {
+
+    // mise en place du carrousel
+    $('.carrousel').slick({
+        accessibility: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        arrows: true,
+        centerMode: true,
+        centerPadding: '0px',
+        dots: true,
+        infinite: true,
+    });
+
     // appel de la fonction home pour afficher les infos de la page d'accueil
     home();
 
     // gestion du clic sur le bouton actualiser :
     // on efface le feed existant puis
     // on rappelle la fonction home pour recréer l'affichage à jour
-    $("button").on("click", function() {
+    $(".btn-refresh").on("click", function () {
         $("article").remove();
         discipline = randomDiscipline();
         home();
@@ -28,6 +41,7 @@ function randomDiscipline() {
     return discipline[index];
 }
 
+// fonction qui fait la requête API puis appelle la fonction de traitement des données
 function getData(apiUrl) {
     $.ajax({
         url: apiUrl,
@@ -41,10 +55,11 @@ function getData(apiUrl) {
         })
 }
 
+// fonction qui crée le feed
 function showResult(data) {
     $("h1").text(discipline);
     let newArticle = ("<article>");
-    $("button").after(newArticle);
+    $(".btn-refresh").after(newArticle);
     data.forEach(entity => {
         let newSection = ("<section>");
         $("article").append(newSection);

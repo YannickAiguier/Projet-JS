@@ -1,0 +1,9 @@
+body {
+    background-color: thistle;
+}
+
+.carrousel {
+    margin: 0 auto;
+    width: 770px;
+    height: 440px;
+}
