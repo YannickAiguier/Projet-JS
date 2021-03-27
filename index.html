@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link href="styles/styles.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
@@ -14,13 +16,18 @@
 </head>
 <body>
     <header class="header">
-        BWF Rankings
+        <div class="site-logo"><img src="images/logo-bwf-rgb.svg" alt="BWF logo"></div>
+        <div>Rankings</div>
+        <nav class="menu">
+            <button class="menu__btn">MENU</button>
+            <div class="menu-content">
+                <a href="index.html">Rankings</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="games.html">Games</a>
+            </div>
+        </nav>
     </header>
-    <nav>
-        <a href="index.html">Accueil</a>
-        <a href="gallery.html">Gallerie</a>
-        <a href="games.html">Jeux</a>
-    </nav>
+    
 
     <div class="carrousel slick-slider">
         <div><img src="images/ms01.jpg"></div>

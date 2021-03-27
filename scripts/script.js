@@ -26,10 +26,18 @@ $(document).ready(function () {
         discipline = randomDiscipline();
         home();
     })
+
+    $(".menu__btn").on("click", function () {
+        toggleMenu();
+    })
+
+    $(".menu-content").on("mouseout", function () {
+        toggleMenu();
+    })
 });
 
+// fonction qui défini l'url de l'api et appelle la fonction getData
 function home() {
-    // définition de l'url de l'api a appelé et appel via la fonction getData
     let myUrl = "https://bwf-api.herokuapp.com/api/" + discipline;
     getData(myUrl);
 }
@@ -74,4 +82,8 @@ function showResult(data) {
         $("section:last").append(newP);
         $("p:last").text(`Carrière : ${entity.win} pour ${entity.loss} défaites`);
     });
+}
+
+function toggleMenu() {
+    $(".menu-content").toggleClass("show");
 }
