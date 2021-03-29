@@ -20,8 +20,16 @@ $(document).ready(function () {
 
     let addButton = document.getElementById("addButton");
     addButton.addEventListener("click", function (event) {
-        createFeedElement(createFormElement());
         event.preventDefault();
+        let form = document.getElementById("addForm");
+        let rankRegExp = /^[0-9]+$/;
+        // si autre chose qu'un nombre entier alerter l'utilisateur
+        if (!rankRegExp.test(form.addRank.value)) {
+            alert('Entrez un nombre pour le rang svp.');form.addRank.innerHTML = "";
+        } else {
+            createFeedElement(createFormElement());
+        }
+        
     })
 
     // gestion du clic sur le bouton actualiser :
