@@ -18,6 +18,12 @@ $(document).ready(function () {
     // appel de la fonction home pour afficher les infos de la page d'accueil
     home();
 
+    let addButton = document.getElementById("addButton");
+    addButton.addEventListener("click", function (event) {
+        createFeedElement(createFormElement());
+        event.preventDefault();
+    })
+
     // gestion du clic sur le bouton actualiser :
     // on efface le feed existant puis
     // on rappelle la fonction home pour recréer l'affichage à jour
@@ -27,10 +33,12 @@ $(document).ready(function () {
         home();
     })
 
+    // clic sur le bouton menu : affiche/masque le menu
     $(".menu__btn").on("click", function () {
         toggleMenu();
     })
 
+    // la souris quitte le menu : il disparait
     $(".menu-content").on("mouseout", function () {
         toggleMenu();
     })
@@ -69,21 +77,35 @@ function showResult(data) {
     let newArticle = ("<article>");
     $(".btn-refresh").after(newArticle);
     data.forEach(entity => {
-        let newSection = ("<section>");
-        $("article").append(newSection);
-        let newH2 = ("<h2>");
-        $("section:last").append(newH2);
-        $("h2:last").text(`${entity.rank}. ${entity.name} (${entity.country})`);
-        let newP = ("<p>");
-        $("section:last").append(newP);
-        $("p:last").text(`${entity.points} points`);
-        $("section:last").append(newP);
-        $("p:last").text(`${entity.tmntsPlayed} tournois joués, ${entity.earnings} de gains, ${entity.ranking_change} places gagnées`);
-        $("section:last").append(newP);
-        $("p:last").text(`Carrière : ${entity.win} pour ${entity.loss} défaites`);
+        createFeedElement(entity);
     });
 }
 
+// fonction qui crée un élément du feed
+function createFeedElement(element) {
+    let newSection = ("<section>");
+    $("article").append(newSection);
+    let newH2 = ("<h2>");
+    $("section:last").append(newH2);
+    $("h2:last").text(`${element.rank}. ${element.name} (${element.country})`);
+    let newP = ("<p>");
+    $("section:last").append(newP);
+    $("p:last").text(`${element.points} points`);
+    $("section:last").append(newP);
+    $("p:last").text(`${element.tmntsPlayed} tournois joués, ${element.earnings} de gains, ${element.ranking_change} places gagnées`);
+    $("section:last").append(newP);
+    $("p:last").text(`Carrière : ${element.win} pour ${element.loss} défaites`);
+}
+
+// fonction pour afficher/masquer le menu
 function toggleMenu() {
     $(".menu-content").toggleClass("show");
+}
+
+// fonction qui crée et retourne un objet depuis les données du formulaire
+function createFormElement () {
+    let form = document.getElementById("addForm");
+    let element = {country: form.addCountry.value, earnings: "$" + form.addEarnings.value, loss: form.addLoss.value, name: form.addName.value,
+        points: form.addPoints.value, rank: form.addRank.value, ranking_change: 0, tmntsPlayed: form.addPlayed.value, win: form.addWin.value};
+    return element;
 }
