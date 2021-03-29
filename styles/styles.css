@@ -94,3 +94,21 @@ form label {
     min-width: 7%;
     box-sizing: border-box;
 }
+
+/* Styles pour la gallerie */
+.articleGalleryMosaic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.articleGalleryColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divgallery{
+    text-align: center;
+    width: 50%;
+}

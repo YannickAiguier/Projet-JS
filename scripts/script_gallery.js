@@ -3,6 +3,7 @@ let images = ["ms01.jpg", "ws01.jpg", "md01.jpg", "wd01.jpg", "mx01.jpg", "mx02.
 
 $(document).ready(function () {
 
+    
     createGallery();
 
     // clic sur le bouton menu : affiche/masque le menu
@@ -13,6 +14,14 @@ $(document).ready(function () {
     // la souris quitte le menu : il disparait
     $(".menu-content").on("mouseout", function () {
         toggleMenu();
+    })
+
+    $(".mosaicButton").on("click", function() {
+        $("article").removeClass("articleGalleryColumn").addClass("articleGalleryMosaic");
+    })
+
+    $(".columnButton").on("click", function() {
+        $("article").removeClass("articleGalleryMosaic").addClass("articleGalleryColumn");
     })
 });
 
@@ -25,7 +34,8 @@ function toggleMenu() {
 // fonction qui crée la gallerie
 function createGallery() {
     let newArticle = ("<article>");
-    $("h1").after(newArticle);
+    $("#buttonDiv").after(newArticle);
+    $("article").addClass("articleGalleryMosaic");
     images.forEach(entity => {
         createGalleryElement(entity);
     });
@@ -35,6 +45,7 @@ function createGallery() {
 function createGalleryElement(element) {
     let newDiv = ("<div>");
     $("article").append(newDiv);
+    $("div:last").addClass("divgallery");
     let newImg = ("<img>");
     $("div:last").append(newImg)
     $("img:last").attr("src", "images/" + element);
