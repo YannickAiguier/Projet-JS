@@ -14,6 +14,9 @@ $(document).ready(function () {
     // sur les 3 images : clic = afficher l'image dans le cadre joueur
     $(".scissors, .leaf, .stone").on("click", function() {
         selectChoice(this, ".userSymbol");
+        let computer = "." + getComputerChoice();
+        let choice = $(computer);
+        selectChoice(choice[0], ".computerChoice");
     })
 });
 
@@ -30,4 +33,10 @@ function selectChoice(choice, target) {
     $(target).append(newImg);
     //$(target + ":img").attr("src", imgSrc);
     $(target + " img").attr("src", imgSrc);
+}
+
+// fonction pour déterminer le symbole de l'ordinateur
+function getComputerChoice() {
+    let choices = ['stone', 'leaf', 'scissors'];
+    return choices[Math.floor(Math.random() * Math.floor(3))];
 }
