@@ -18,13 +18,24 @@ $(document).ready(function () {
     })
 
     // bouton d'affichage de la gallerie en mosaïque
-    $(".mosaicButton").on("click", function() {
+    $(".mosaicButton").on("click", function () {
         $("article").removeClass("articleGalleryColumn").addClass("articleGalleryMosaic");
     })
 
     // bouton d'affichage de la gallerie en colonne
-    $(".columnButton").on("click", function() {
+    $(".columnButton").on("click", function () {
         $("article").removeClass("articleGalleryMosaic").addClass("articleGalleryColumn");
+    })
+
+    // bouton d'ajout d'image à la gallerie (affiche/masque la div du formulaire)
+    $(".addImgButton").on("click", function () {
+        toggleImgForm();
+    });
+
+    // bouton pour confirmer l'ajout
+    $("#addImgButton").on("click", function (event) {
+        event.preventDefault();
+        addToGallery();
     })
 });
 
@@ -52,4 +63,22 @@ function createGalleryElement(element) {
     let newImg = ("<img>");
     $("div:last").append(newImg)
     $("img:last").attr("src", "images/" + element);
+}
+
+// fonction pour afficher/masquer le firmulaire d'ajour d'image
+function toggleImgForm() {
+    $("#addImgDiv").toggle("show");
+}
+
+// fonction pour gérer l'ajout d'image à la gallerie depuis l'url du formulaire
+function addToGallery() {
+    let form = document.getElementById("addImgForm");
+    let imageUrl = form.addImg.value;
+    let newDiv = ("<div>");
+    $("article").append(newDiv);
+    $("div:last").addClass("divgallery");
+    let newImg = ("<img>");
+    $("div:last").append(newImg)
+    $("img:last").attr("src", imageUrl);
+    toggleImgForm();
 }
