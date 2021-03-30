@@ -112,3 +112,7 @@ form label {
     text-align: center;
     width: 50%;
 }
+
+#addImgDiv {
+    display: none;
+}

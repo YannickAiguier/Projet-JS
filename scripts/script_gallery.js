@@ -3,9 +3,10 @@ let images = ["ms01.jpg", "ws01.jpg", "md01.jpg", "wd01.jpg", "mx01.jpg", "mx02.
 
 $(document).ready(function () {
 
-    
+    // création dynamique de la gallerie
     createGallery();
 
+    // Ici tous les listeners
     // clic sur le bouton menu : affiche/masque le menu
     $(".menu__btn").on("click", function () {
         toggleMenu();
@@ -16,10 +17,12 @@ $(document).ready(function () {
         toggleMenu();
     })
 
+    // bouton d'affichage de la gallerie en mosaïque
     $(".mosaicButton").on("click", function() {
         $("article").removeClass("articleGalleryColumn").addClass("articleGalleryMosaic");
     })
 
+    // bouton d'affichage de la gallerie en colonne
     $(".columnButton").on("click", function() {
         $("article").removeClass("articleGalleryMosaic").addClass("articleGalleryColumn");
     })
@@ -34,7 +37,7 @@ function toggleMenu() {
 // fonction qui crée la gallerie
 function createGallery() {
     let newArticle = ("<article>");
-    $("#buttonDiv").after(newArticle);
+    $("#addImgDiv").after(newArticle);
     $("article").addClass("articleGalleryMosaic");
     images.forEach(entity => {
         createGalleryElement(entity);
