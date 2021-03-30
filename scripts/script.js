@@ -55,8 +55,11 @@ $(document).ready(function () {
     // bouton pour supprimer
     $(".btn-delete").on("click", function(event) {
         event.preventDefault();
-        // passer toutes les div isErasable en mode "hover : change curseur"
+        // passer toutes les div isErasable en mode "hover : change curseur, clic : erase"
         $(".isErasable").addClass("readyToErase");
+        $(".isErasable").on("click", function() {
+            $(this).remove();
+        })
     })
 });
 

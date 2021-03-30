@@ -40,8 +40,11 @@ $(document).ready(function () {
 
     // bouton pour supprimer
     $(".delImgButton").on("click", function() {
-        // passer toutes les div isErasable en mode "hover : change curseur"
+        // passer toutes les div isErasable en mode "hover : change curseur, clic = delete"
         $(".isErasable").addClass("readyToErase");
+        $(".isErasable").on("click", function() {
+            $(this).remove();
+        })
     })
 });
 
