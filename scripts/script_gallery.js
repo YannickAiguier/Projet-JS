@@ -37,6 +37,12 @@ $(document).ready(function () {
         event.preventDefault();
         addToGallery();
     })
+
+    // bouton pour supprimer
+    $(".delImgButton").on("click", function() {
+        // passer toutes les div isErasable en mode "hover : change curseur"
+        $(".isErasable").addClass("readyToErase");
+    })
 });
 
 
@@ -80,5 +86,6 @@ function addToGallery() {
     let newImg = ("<img>");
     $("div:last").append(newImg)
     $("img:last").attr("src", imageUrl);
+    $("div:last").addClass("isErasable");
     toggleImgForm();
 }

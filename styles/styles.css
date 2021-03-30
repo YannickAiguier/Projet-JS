@@ -116,3 +116,8 @@ form label {
 #addImgDiv {
     display: none;
 }
+
+.readyToErase:hover {
+    cursor: crosshair;
+    opacity: 0.5;
+}
