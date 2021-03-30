@@ -77,6 +77,10 @@ body {
     margin: 0;
 }
 
+h1 {
+    text-align: center;
+}
+
 .carrousel {
     margin: 0 auto;
     width: 770px;
@@ -121,3 +125,52 @@ form label {
     cursor: crosshair;
     opacity: 0.5;
 }
+
+/* Styles pour les jeux */
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+.gameChoice {
+    display: flex;
+    justify-content: space-around;
+}
+
+.shifumiChoice, .memoryChoice {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    background-color: white;
+}
+
+.shifumiChoice img, .memoryChoice img {
+    width: 80%;
+}
+
+.userPossibilities {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5em;;
+}
+
+.duel, .result {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3em;
+}
+
+.userChoice, .computerChoice, .userScore, .computerScore {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 30%;
+    border: black;
+    border-width: 1px;
+}
+
+.animation, .space {
+    display: flex;
+    width: 60%;
+}
+

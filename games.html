@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-        <link href="styles/styles.css" rel="stylesheet" type="text/css">
-        <script src="scripts/jquery.js" defer></script>
-        <script src="scripts/script_games.js" defer></script>
-        <title>Projet JS</title>
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="styles/styles.css" rel="stylesheet" type="text/css">
+    <script src="scripts/jquery.js" defer></script>
+    <script src="scripts/script_games.js" defer></script>
+    <title>Projet JS</title>
+</head>
+
 <body>
     <header class="header">
         <div class="site-logo"><img src="images/logo-bwf-rgb.svg" alt="BWF logo"></div>
@@ -24,9 +26,42 @@
             </div>
         </nav>
     </header>
-    <h1>Games</h1>
-    <footer>
-        Copyright Yannick 2021
-    </footer>
+    <main>
+        <h1>Games</h1>
+        <article class="gameChoice">
+            <section class="shifumiChoice"><img src="./images/jeux/shifumi/shifumi.svg" alt="shifumi"></section>
+            <section class="memoryChoice"><img src="./images/jeux/memory/memory.svg" alt="memory"></section>
+        </article>
+        <article class="shifumiGame">
+            <div class="userPossibilities">
+                <div class="scissors"><img src="./images/jeux/shifumi/ciseaux_gauche.svg" alt="scissors"></div>
+                <div class="leaf"><img src="./images/jeux/shifumi/feuille_gauche.svg" alt="leaf"></div>
+                <div class="stone"><img src="./images/jeux/shifumi/pierre_gauche.svg" alt="stone"></div>
+            </div>
+            <div class="duel">
+                <div class="userChoice">
+                    <div>Vous</div>
+                    <div class="userSymbol"></div>
+                </div>
+                <div class="animation"></div>
+                <div class="computerChoice">
+                    <div>Ordinateur</div>
+                    <div class="computerSymbol"></div>
+                </div>
+            </div>
+            <div class="result">
+                <div class="userScore">0</div>
+                <div class="space"></div>
+                <div class="computerScore">0</div>
+            </div>
+        </article>
+        <article class="memoryGame">
+            Rien pour l'instant...
+        </article>
+        <footer>
+            Copyright Yannick 2021
+        </footer>
+    </main>
 </body>
+
 </html>
