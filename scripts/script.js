@@ -28,6 +28,7 @@ $(document).ready(function () {
             alert('Entrez un nombre pour le rang svp.');form.addRank.innerHTML = "";
         } else {
             createFeedElement(createFormElement());
+            addErasableClass();
         }
         
     })
@@ -49,6 +50,16 @@ $(document).ready(function () {
     // la souris quitte le menu : il disparait
     $(".menu-content").on("mouseout", function () {
         toggleMenu();
+    })
+
+    // bouton pour supprimer
+    $(".btn-delete").on("click", function(event) {
+        event.preventDefault();
+        // passer toutes les div isErasable en mode "hover : change curseur, clic : erase"
+        $(".isErasable").addClass("readyToErase");
+        $(".isErasable").on("click", function() {
+            $(this).remove();
+        })
     })
 });
 
@@ -83,7 +94,7 @@ function getData(apiUrl) {
 function showResult(data) {
     $("h1").text(discipline);
     let newArticle = ("<article>");
-    $(".btn-refresh").after(newArticle);
+    $("#addForm").after(newArticle);
     data.forEach(entity => {
         createFeedElement(entity);
     });
@@ -116,4 +127,9 @@ function createFormElement () {
     let element = {country: form.addCountry.value, earnings: "$" + form.addEarnings.value, loss: form.addLoss.value, name: form.addName.value,
         points: form.addPoints.value, rank: form.addRank.value, ranking_change: 0, tmntsPlayed: form.addPlayed.value, win: form.addWin.value};
     return element;
+}
+
+// fonction pour ajouter une classe qui désigne l'élément du feed comme effaçable
+function addErasableClass() {
+    $("section:last").addClass("isErasable");
 }

@@ -112,3 +112,12 @@ form label {
     text-align: center;
     width: 50%;
 }
+
+#addImgDiv {
+    display: none;
+}
+
+.readyToErase:hover {
+    cursor: crosshair;
+    opacity: 0.5;
+}
