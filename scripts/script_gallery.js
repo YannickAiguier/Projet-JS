@@ -62,15 +62,16 @@ function createGallery() {
     images.forEach(entity => {
         createGalleryElement(entity);
     });
+    $(".loader").addClass("hide");
 }
 
 // fonction qui crée une vignette de la gallery
 function createGalleryElement(element) {
     let newDiv = ("<div>");
     $("article").append(newDiv);
-    $("div:last").addClass("divgallery");
+    $("article div:last").addClass("divgallery");
     let newImg = ("<img>");
-    $("div:last").append(newImg)
+    $("article div:last").append(newImg)
     $("img:last").attr("src", "images/" + element);
 }
 
