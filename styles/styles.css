@@ -266,3 +266,21 @@ main {
 .show {
     display: block;
 }
+
+/* Styles du plateau de jeu */
+.memory {
+    display: flex;
+    flex-direction: column;
+}
+
+[class^⁼"memoryLine"] {
+    display: flex;
+}
+
+.memoryBox* {
+    background-color: cyan;
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+}
