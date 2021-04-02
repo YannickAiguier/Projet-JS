@@ -16,6 +16,16 @@ $(document).ready(function () {
         toggleMenu();
     })
 
+    // clic sur les photos pour choix du jeu
+    $(".shifumiChoice").on("click", function() {
+        $(".shifumiGame").addClass("show");
+        $(".memoryGame").removeClass("show");
+    })
+    $(".memoryChoice").on("click", function() {
+        $(".memoryGame").addClass("show");
+        $(".shifumiGame").removeClass("show");
+    })
+
     // sur les 3 images : clic = afficher les images dans les cadres joueur et ordinateur
     // puis déterminer le vainqueur et afficher le résultat et MAJ du score
 

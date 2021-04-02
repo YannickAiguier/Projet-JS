@@ -10,6 +10,7 @@
     <link href="styles/styles.css" rel="stylesheet" type="text/css">
     <script src="scripts/jquery.js" defer></script>
     <script src="scripts/script_games.js" defer></script>
+    <script src="scripts/memory_game.js" defer></script>
     <title>Projet JS</title>
 </head>
 
@@ -43,19 +44,40 @@
                     <div>Vous</div>
                     <div class="userSymbol"></div>
                 </div>
-                <div class="result"><p></p></div>
+                <div class="result">
+                    <p></p>
+                </div>
                 <div class="computerChoice">
                     <div>Ordinateur</div>
                     <div class="computerSymbol"></div>
                 </div>
             </div>
             <div class="score">
-                <div class="userScore"><p></p></div>
+                <div class="userScore">
+                    <p></p>
+                </div>
                 <div class="space"></div>
-                <div class="computerScore"><p></p></div>
+                <div class="computerScore">
+                    <p></p>
+                </div>
             </div>
         </article>
         <article class="memoryGame">
+
+            <div class="memoryParam">
+                <form class="memoryForm">
+                    <label for="difficulty">Difficulté :</label>
+                    <select name="dropdown" id="difficulty">
+                        <option value="2">Facile</option>
+                        <option value="4">Normal</option>
+                        <option value="6">Difficile</option>
+                    </select>
+                    <label for="theme">Saississez un thème :</label>
+                    <input type="text" name="theme" id="theme">
+                    <button class="btn-ok">OK</button>
+                </form>
+            </div>
+            <div class="memory"></div>
         </article>
         <footer>
             Copyright Yannick 2021

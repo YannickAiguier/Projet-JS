@@ -68,9 +68,7 @@ header {
     background-color: lightgrey;
 }
 
-.show {
-    display: block;
-}
+
 
 body {
     background-color: thistle;
@@ -140,12 +138,21 @@ main {
 .shifumiChoice, .memoryChoice {
     display: flex;
     justify-content: center;
-    width: 20%;
+    width: 15%;
     background-color: white;
 }
 
 .shifumiChoice img, .memoryChoice img {
     width: 80%;
+}
+
+.memoryGame {
+    display: flex;
+    justify-content: center;
+}
+
+.shifumiGame, .memoryGame {
+    display: none;
 }
 
 .userPossibilities {
@@ -205,13 +212,89 @@ main {
     width: 120px;
     height: 120px;
     animation: spin 1s linear infinite;
-  }
+}
   
-  @keyframes spin {
+@keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-  }
+}
 
-  .hide {
+.hide {
       display: none;
-  }
+}
+
+/* Styles pour le menu du mémory */
+.diffMenu {
+    align-self: flex-end;
+    margin-right: .2em;
+    position: relative;
+    display: inline-block;
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.difficulty__btn {
+    background-color: #fff;
+    color: #df2027;
+    font-size: .3em;
+    font-weight: bold;
+    padding: 0;
+    width: 6em;
+    height: 2em;
+    border-radius: 10px;
+    border: none;
+}
+
+.diff_menu-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.diff_menu-content a {
+    color: #df2027;
+    padding: .3em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .4em;
+    font-weight: normal;
+    text-decoration: none;
+    display: block;
+}
+
+.diff_menu-content a:hover {
+    background-color: lightgrey;
+}
+
+.show {
+    display: block;
+}
+
+/* Styles du plateau de jeu */
+.memory {
+    display: flex;
+    flex-direction: column;
+}
+
+.memoryLine {
+    display: flex;
+}
+
+.memoryBox {
+    /* background-color: cyan; */
+    border: 1px solid black;
+    height: 130px;
+    width: 200px;
+    margin: 10px;
+}
+
+.memoryBox img {
+    width: 100%;
+    height: 100%;
+}
+
+.memoryFound {
+    border: none;
+}
