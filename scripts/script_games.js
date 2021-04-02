@@ -5,9 +5,6 @@ let computerScoreP = $(".computerScore p");
 
 $(document).ready(function () {
 
-    // test API Pixabay
-    //getMemoryImages(5, 'animals');
-
     // les listeners
     // clic sur le bouton menu : affiche/masque le menu
     $(".menu__btn").on("click", function () {
@@ -27,25 +24,6 @@ $(document).ready(function () {
     $(".memoryChoice").on("click", function() {
         $(".memoryGame").addClass("show");
         $(".shifumiGame").removeClass("show");
-    })
-
-    // menu du jeu memory
-    $(".difficulty__btn").on("click", function() {
-        $(".diff_menu-content").toggleClass("show");
-    })
-    $(".diff_menu-content").on("mouseout", function() {
-        $(this).toggleClass("show");
-    })
-
-    // réaction au choix du niveau
-    $("#easyGame").on("click", function(){
-        createBoard(2, 'animals');
-    })
-    $("#normalGame").on("click", function(){
-        createBoard(4, 'animals');
-    })
-    $("#difficultGame").on("click", function(){
-        createBoard(6, 'animals');
     })
 
     // sur les 3 images : clic = afficher les images dans les cadres joueur et ordinateur
