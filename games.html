@@ -63,13 +63,19 @@
             </div>
         </article>
         <article class="memoryGame">
-            <div class="diffMenu">
-                <button class="difficulty__btn">Difficulté</button>
-                <div class="diff_menu-content">
-                    <a id="easyGame" href="#">Facile</a>
-                    <a id="normalGame" href="#">Normal</a>
-                    <a id="difficultGame" href="#">Difficile</a>
-                </div>
+
+            <div class="memoryParam">
+                <form class="memoryForm">
+                    <label for="difficulty">Difficulté :</label>
+                    <select name="dropdown" id="difficulty">
+                        <option value="2">Facile</option>
+                        <option value="4">Normal</option>
+                        <option value="6">Difficile</option>
+                    </select>
+                    <label for="theme">Saississez un thème :</label>
+                    <input type="text" name="theme" id="theme">
+                    <button class="btn-ok">OK</button>
+                </form>
             </div>
             <div class="memory"></div>
         </article>
